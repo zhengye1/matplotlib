@@ -4,7 +4,8 @@
 #ifndef _FT2FONT_H
 #define _FT2FONT_H
 #include <vector>
-#include <stdint.h>
+
+#include "mplutils.h"
 
 extern "C" {
 #include <ft2build.h>

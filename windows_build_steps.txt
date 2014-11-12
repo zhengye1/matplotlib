@@ -1,0 +1,13 @@
+http://www.activestate.com/activetcl/downloads/thank-you?dl=http://downloads.activestate.com/ActiveTcl/releases/8.5.16.0/ActiveTcl8.5.16.0.298506-win32-ix86-threaded.exes
+
+
+conda install --file conda-requirements.txt
+
+call Visual Studio 9\VC\vcvarsall.bat
+
+set INCLUDE=%INCLUDE%;C:\Users\Will\Miniconda\Library\include;C:\tcl\include
+
+set LIB=%LIB%;C:\Users\Will\Miniconda\Library\lib;C:\tcl\lib
+set PATH=%PATH%;C:\Users\Will\Miniconda\Library\bin
+
+copy libpng.lib to png.lib

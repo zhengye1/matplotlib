@@ -1,5 +1,6 @@
 #include "numpy_cpp.h"
 
+#include "mplutils.h"
 #include "_path.h"
 
 #include "py_converters.h"

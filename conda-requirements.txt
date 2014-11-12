@@ -1,0 +1,12 @@
+numpy
+dateutil
+freetype
+nose
+pyparsing
+pytz
+tornado
+libpng
+zlib 
+pyqt 
+distribute
+mock

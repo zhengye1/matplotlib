@@ -1457,6 +1457,8 @@ class BackendTkAgg(OptionalBackendPackage):
 
     def add_flags(self, ext):
         if sys.platform == 'win32':
+            # We hardcode the tk versions for Windows - there is no
+            # fundamental reason for this, and we should fix it.
             major, minor1, minor2, s, tmp = sys.version_info
             if sys.version_info[0:2] < (3, 4):
                 ext.include_dirs.extend(['win32_static/include/tcl85'])

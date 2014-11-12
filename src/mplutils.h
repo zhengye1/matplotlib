@@ -6,7 +6,12 @@
 #define _MPLUTILS_H
 
 #if defined(_MSC_VER) && _MSC_VER <= 1600
-typedef unsigned __int8   uint8_t;
+// http://stackoverflow.com/a/127166/4237086
+typedef unsigned char uint8_t;
+typedef __int32 int32_t;
+typedef unsigned __int32 uint32_t;
+typedef __int64 int64_t;
+typedef unsigned __int64 uint64_t;
 #else
 #include <stdint.h>
 #endif
