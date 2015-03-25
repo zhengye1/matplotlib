@@ -1485,7 +1485,8 @@ def cohere_pairs(X, ij, NFFT=256, Fs=2, detrend=detrend_none,
     # of every channel.  If preferSpeedOverMemory, cache the conjugate
     # as well
     if cbook.iterable(window):
-        assert(len(window) == NFFT)
+        if len(window) != NFFT:
+            raise ValueError("The length of the window must be equal to NFFT")
         windowVals = window
     else:
         windowVals = window(np.ones(NFFT, X.dtype))
@@ -2552,7 +2553,7 @@ def rec_join(key, r1, r2, jointype='inner', defaults=None, r1postfix='1',
 
         dt2 = r2.dtype[name]
         if dt1 != dt2:
-            msg = "The '{}' fields in arrays 'r1' and 'r2' must have the same"
+            msg = "The '{0}' fields in arrays 'r1' and 'r2' must have the same"
             msg += " dtype."
             raise ValueError(msg.format(name))
         if dt1.num > dt2.num:
@@ -3577,7 +3578,8 @@ def stineman_interp(xi, x, y, yp=None):
     # Cast key variables as float.
     x = np.asarray(x, np.float_)
     y = np.asarray(y, np.float_)
-    assert x.shape == y.shape
+    if x.shape != y.shape:
+        raise ValueError("'x' and 'y' must be of same shape")
 
     if yp is None:
         yp = slopes(x, y)
@@ -3824,7 +3826,8 @@ def poly_below(xmin, xs, ys):
     ys = numpy.asarray(ys)
     Nx = len(xs)
     Ny = len(ys)
-    assert(Nx == Ny)
+    if Nx != Ny:
+        raise ValueError("'xs' and 'ys' must have the same length")
     x = xmin*numpy.ones(2*Nx)
     y = numpy.ones(2*Nx)
     x[:Nx] = xs
